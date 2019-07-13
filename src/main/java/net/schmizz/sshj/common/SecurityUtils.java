@@ -70,6 +70,10 @@ public class SecurityUtils {
         registrationDone = true;
     }
 
+    public static boolean getAndroid28() {
+        return android28;
+    }
+
     public static boolean registerSecurityProvider(String providerClassName) {
         Provider provider = null;
         try {
