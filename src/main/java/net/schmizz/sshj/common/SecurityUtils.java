@@ -52,6 +52,10 @@ public class SecurityUtils {
      */
     public static final String SPONGY_CASTLE = "SC";
 
+    // Android P (API Level 28) changes the behavior of Security.getProvider and
+    // Cipher.getInstance.  Set this if you're running 28 or above.
+    private static boolean android28 = true;
+
     /*
     * Security provider identifier. null = default JCE
     */
@@ -60,6 +64,11 @@ public class SecurityUtils {
     // relate to BC registration (or SpongyCastle on Android)
     private static Boolean registerBouncyCastle;
     private static boolean registrationDone;
+
+    public static void setAndroid28(boolean android28) {
+        SecurityUtils.android28 = android28;
+        registrationDone = true;
+    }
 
     public static boolean registerSecurityProvider(String providerClassName) {
         Provider provider = null;

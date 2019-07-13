@@ -30,7 +30,9 @@ public class AndroidConfig
         extends DefaultConfig {
 
     static {
-        SecurityUtils.registerSecurityProvider("org.spongycastle.jce.provider.BouncyCastleProvider");
+//        SecurityUtils.registerSecurityProvider("org.spongycastle.jce.provider.BouncyCastleProvider");
+        // TODO: Check api level?  Can't in non-android env?
+        SecurityUtils.setAndroid28(true);
     }
 
     // don't add ECDSA
